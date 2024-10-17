@@ -11,15 +11,11 @@ app.use(cors());
 
 async function getBrowser() {
   return puppeteer.launch({
-    args: [
-      ...chromium.args,
-      '--hide-scrollbars',
-      '--disable-web-security',
-      '--no-sandbox',
-      '--disable-setuid-sandbox',
-    ],
+    args: [...chromium.args, '--hide-scrollbars', '--disable-web-security'],
     defaultViewport: chromium.defaultViewport,
-    executablePath: await chromium.executablePath(), // Vercel environment automatically resolves this
+    executablePath: await chromium.executablePath(
+      `https://github.com/Sparticuz/chromium/releases/download/v116.0.0/chromium-v116.0.0-pack.tar`,
+    ),
     headless: chromium.headless,
     ignoreHTTPSErrors: true,
   });
