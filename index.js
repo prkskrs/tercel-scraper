@@ -1,7 +1,7 @@
 import puppeteer from 'puppeteer-core';
 import express from 'express';
 import cors from 'cors';
-import chromium from '@sparticuz/chromium-min';
+import chromium from '@sparticuz/chromium';
 
 const app = express();
 const PORT = process.env.PORT || 4000;
